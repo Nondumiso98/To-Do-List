@@ -98,3 +98,23 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTime, 1000);
     updateTime();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const taskList = document.querySelector('ul');
+
+    taskList.addEventListener('change', (event) => {
+        if (event.target.tagName === 'INPUT' && event.target.type === 'checkbox') {
+            const listItem = event.target.closest('li');
+            listItem.classList.toggle('completed', event.target.checked);
+        }
+    });
+
+    taskList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('complete-btn')) {
+            const listItem = event.target.closest('li');
+            const checkbox = listItem.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            listItem.classList.toggle('completed', checkbox.checked);
+        }
+    });
+});

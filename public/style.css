@@ -1,4 +1,4 @@
-
+/* Base styles for desktop */
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to right, #f0f2f5, #e9ecef);
@@ -26,19 +26,16 @@ body {
     top: 0;
 }
 
+.date-time {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+}
 
-    .date-time {
-        display: flex;
-        flex-direction: column;
-        font-size: 1rem;
-    }
-
-    .date-time .time {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
-
+.date-time .time {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
 .todo-container {
     background: white;
@@ -105,6 +102,7 @@ li {
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 li span {
     margin-right: 20px; 
 }
@@ -169,4 +167,154 @@ li button {
 
 .footer p {
     margin: 0;
+}
+
+/* Base styles for the calendar */
+.calendar {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    font-size: 1.5rem;
+    color: #ce3b91;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-day {
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-day:hover {
+    background: #ce3b91;
+    color: white;
+}
+
+/* Media query for tablets and mobile devices */
+@media (max-width: 768px) {
+    .todo-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input, button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    li span:nth-child(2) {
+        margin-left: 0;
+    }
+
+    li button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .calendar {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .calendar-day {
+        padding: 8px;
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+    .header, .footer {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .todo-container {
+        width: 100%;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input, button {
+        width: 100%;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    li span {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    li button {
+        width: 100%;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    .calendar {
+        width: calc(100% - 20px); /* Add padding to the sides */
+        padding: 10px;
+        margin: 0 auto; /* Center the calendar */
+    }
+
+    .calendar-header h2 {
+        font-size: 1rem;
+    }
+
+    .calendar-day {
+        padding: 5px;
+    }
 }
